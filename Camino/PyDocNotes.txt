@@ -1,0 +1,52 @@
+
+
+Sphinx PyDoc notes
+
+Pre-steps:
+
+1) add to the requirments.txt file:
+   Sphinx~=7.1.2
+   sphinxcontrib-spelling~=8.0.0
+
+2) add to the project root directory a
+    Readme.rst file
+
+3) Edit the Readme.rst file to add your
+    Project overview details
+    use the Sphinx tags to document your file
+
+4) Add a docs folder to the project root
+
+5) Right click the project and select
+    Open in -> Terminal
+
+6) Run the Sphinx quickstart via:
+    sphinx-quickstart docs
+   and answer the questions
+    Y -> to separate source/build folders
+    Camino -> for Project name
+    Jonathan Earl -> for author
+    0.1 -> for project version
+    en -> for language
+
+7) in the terminal window run
+    sphinx-build -M html docs/source/ docs/build/mak
+
+8) Edit the generated docs/source/index.rst file
+
+9) Using the terminal window in the docs folder
+    run
+      make html
+    open the docs/build/index.html is a Web Browser
+
+10) edit the docs/source/conf.py file to
+     add extensions and themes
+
+
+
+     https://sphinx-tutorial.readthedocs.io/cheatsheet/
+     https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+
+right-click the docs folder and open a terminal window
+ sphinx-apidoc ../camino -o source
+then build the HTML files

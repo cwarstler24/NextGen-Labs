@@ -1,0 +1,41 @@
+
+Entity Class in the Camino Project
+
+Session -> hold the current view details
+  Selected Route
+  Selected Date
+  List of Routes
+
+
+Route -> a specific Route on the Camino
+  Code
+  Name
+  Nickname
+  Length
+  Segment count
+  List of Segments
+
+
+Segment -> a specific segment on a Route
+  Route code
+  Segment number
+  Name
+  City
+  Country
+  Latitude
+  Longitude
+
+
+Weather -> the results from the WebService call
+  Route Code
+  Segment number
+  Date
+  Latitude
+  Longitude
+  temp
+  elevation
+  wind
+  wind_direction
+  weather_code
+  time
+

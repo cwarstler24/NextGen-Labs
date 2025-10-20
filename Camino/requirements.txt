@@ -1,0 +1,11 @@
+# this is the requirements file for the Camino Weather Application
+PyYAML~=6.0.1
+pytest~=7.4.0
+coverage~=7.3.0
+Sphinx~=7.1.2
+sphinxcontrib-spelling~=8.0.0
+tkcalendar>=1.6.1
+matplotlib>=3.7.3
+mypy>=1.11.0
+sphinx-autoapi>=3.2.1
+schema>=0.7.8

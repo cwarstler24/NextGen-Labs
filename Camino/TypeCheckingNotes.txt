@@ -1,0 +1,24 @@
+
+In Pytheon Type Checking is uses to allow the IDE to provide hints
+about the return value of a funciton
+
+it works like:
+
+ def create_table_stages() -> str:
+
+ where -> str tells the IDE this function will return a str
+
+ I can verfiy the type checking by installing the  mypy module
+ and running:
+
+ mypy camino/config/setting.py
+
+
+ in a Python terminal
+
+ to avoid messages about modules you import, add a mypy.ini
+ file to the project and add these lines:
+
+ [mypy-yaml.*]
+ignore_missing_imports = True
+

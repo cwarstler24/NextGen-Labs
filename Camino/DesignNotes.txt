@@ -1,0 +1,28 @@
+
+Program Flow....
+
+create the Model
+create the controller, pass the model
+  in the controller create the session
+                    call the model to get the routes, load into session
+                         the model calls the database to load the route entity objects
+                             if the database is not found
+                                call the file picker
+                                     create and load the routes and stages
+                                if file picker fails
+                                   terminate the appl
+create the view pass the model and the controller
+  in the view call the model to get the routes
+  build screen
+  connect actions to the controller
+     calendar changes -> controller updates session ?? wait for update button click ??
+     route changes -> controller updates session
+     update screen button clicked
+        controller calls model to load the stages for that route and date
+           the model calls the database to load the Weather entities for each Stage
+               if the database does not have the data
+                  the model calls the webservice client to fetch the data -> Mutilthreaded
+                  the model inserts each Weather entity into the database
+        controller calls the plotter to build the weather plots
+        controller updates each view frame with the weather plots
+        controller updates the status label

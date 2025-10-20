@@ -1,0 +1,94 @@
+Steps I used to create the Camino Python Project
+
+1) Open PyCharm and created a new Python project
+    I had PyChram create a virtual environment
+    and use the Python 3.8 interrupter
+    the default installed packages are:
+    pip	= 22.3.1
+    setuptools = 65.5.1
+    wheel = 0.38.4
+
+    I had PyCharm create a main.py module
+    I ran the main.py to confirm the project
+    was correctly setup
+
+2) I designed the program flow, and added it to the
+   projects as DesignNotes.txt
+
+3) I created the package/module hierarchy
+    Project Directory
+     |-camino
+       |-config
+       |-controller
+       |-logger
+       |-model
+         |-database
+         |-entity
+         |-webservice
+       |-view
+     |-docs
+     |-tests
+       |-camino
+         |-config
+         |-controller
+         |-logger
+         |-model
+           |-database
+           |-entity
+           |-webservice
+         |-view
+4) I want this application to have logging
+    I need to add a log config file
+    into the config package, and name it logger.yaml
+    I need to add yaml support to the project
+    so I add a requirements.txt file with
+       PyYAML~=6.0.1
+    In the logger.yaml file, I add
+    both a root_file_handler as a RotatingFileHandled
+    and a console StreamHandler
+    I will use the console logger primarily as a debug
+    tool, and remove it prior to deployment
+    I create a logger_handle module in the logging package
+    to read the config file and offer a connivance method
+    to facilitate logging
+    In the logging package __init__.py file
+    I create a singleton Log object for the application
+    I add simple log message at the start/end of main.py
+    to test the logging
+5) I want to unit test the modules as they are added
+    to the project, so I add context.py to the
+    tests/camino package to create the singleton Log object
+    then add logger_test.py to the tests/caminio/logger
+    package to provide unit tests for the logger
+    I need to add a couple of new dependencies to requirements.txt
+      pytest~=7.4.0
+      coverage~=7.3.0
+    I also add a pytest.ini file to the project to ignore
+    deprecation warnings in my tests
+    I then run my tests by:                         <-|
+      A) Right the tests folder                       |
+          and select: open in Terminal                |
+      B) enter: coverage run -m pytest                | Run Unit Tests
+      C) then enter: coverage html                    |
+      D) then open htmlcov/index.html in a Browser    |
+          to view the test results/coverage         <-|
+6) I want to create PyDocs from my source code
+   I will be using Sphinx to create HYML documentation
+   so I add these extries to my requirements.txt
+     Sphinx~=7.1.2
+     sphinxcontrib-spelling~=8.0.0
+7) After I add doc strings to my Python source code
+    I generate the HTML documentation by:           <-|
+      A) Right the tests folder                       |
+          and select: open in Terminal                |
+      B) enter: make clean                            | Generate PyDocs
+      C) then enter: make html                        |
+      D) then enter:                                  |
+          sphinx-apidoc -o ./source ../camino         |
+      E) this creates rst files for all the modules <-|
+
+
+
+      setup at:
+      https://www.sphinx-doc.org/en/master/tutorial/first-steps.html
+
